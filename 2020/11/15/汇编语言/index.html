@@ -79,21 +79,49 @@
 
 
 
-<meta name="description" content="网络流的基本概念1.流网络，不考虑反向边 在一张有向图中 G &#x3D; (V, E) 中有一个源点 S 和一个汇点 T。 源点 S 有无限多的水流可以向外流出，汇点 T 可以接受无限多的水流。 其中对于每一条有向边有一个边权代表这条有向边最大可以流过的流量(用 c(u, v) 来表示)。 2.可行流对于可行流用 f 来表示，f 指的是对于一整张有向图而言，指定有向图中每条有向边流过多少流量。f(u, v">
+<meta name="description" content="12     s s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.1流网络，不考虑反向边">
-<meta property="og:url" content="http://zzuyb.github.io/2020/09/25/1.1%E6%B5%81%E7%BD%91%E7%BB%9C%EF%BC%8C%E4%B8%8D%E8%80%83%E8%99%91%E5%8F%8D%E5%90%91%E8%BE%B9/index.html">
+<meta property="og:title" content="汇编语言">
+<meta property="og:url" content="http://zzuyb.github.io/2020/11/15/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="zzuyb">
-<meta property="og:description" content="网络流的基本概念1.流网络，不考虑反向边 在一张有向图中 G &#x3D; (V, E) 中有一个源点 S 和一个汇点 T。 源点 S 有无限多的水流可以向外流出，汇点 T 可以接受无限多的水流。 其中对于每一条有向边有一个边权代表这条有向边最大可以流过的流量(用 c(u, v) 来表示)。 2.可行流对于可行流用 f 来表示，f 指的是对于一整张有向图而言，指定有向图中每条有向边流过多少流量。f(u, v">
-<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2020/07/26/15524_abf2ee34ce-1.png">
-<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2020/07/26/15524_b133db24ce-2.png">
-<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2020/07/26/15524_b5e54e50ce-3.png">
-<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2020/07/26/15524_bcc68e78ce-4.png">
-<meta property="article:published_time" content="2020-09-25T15:40:07.918Z">
-<meta property="article:modified_time" content="2020-09-25T15:40:07.918Z">
+<meta property="og:description" content="12     s s">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011223009364.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011224321595.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011225908563.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011230050983.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011230224110.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018224704182.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018224718837.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018224840582.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018225122845.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018225130888.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018230231323.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018232740515.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018233730611.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201018233920185.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024104612146.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024105358681.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024105845208.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024110116114.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024111356280.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201024112946288.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201025101002414.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201025101432908.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201031221407027.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201031222958696.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201031223355439.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201031223636497.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201107232611683.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201114213218098.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201114215821435.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201114235402716.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201114235953948.png">
+<meta property="og:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201115000006727.png">
+<meta property="article:published_time" content="2020-11-14T16:01:42.768Z">
+<meta property="article:modified_time" content="2020-11-14T16:00:07.650Z">
 <meta property="article:author" content="赵仡博">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.acwing.com/media/article/image/2020/07/26/15524_abf2ee34ce-1.png">
+<meta name="twitter:image" content="c:/Users/13258/AppData/Roaming/Typora/typora-user-images/image-20201011223009364.png">
 
 
 
@@ -123,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://zzuyb.github.io/2020/09/25/1.1流网络，不考虑反向边/"/>
+  <link rel="canonical" href="http://zzuyb.github.io/2020/11/15/汇编语言/"/>
 
 
 
 
 
-  <title>1.1流网络，不考虑反向边 | zzuyb</title>
+  <title>汇编语言 | zzuyb</title>
   
 
 
@@ -246,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2020/09/25/1.1%E6%B5%81%E7%BD%91%E7%BB%9C%EF%BC%8C%E4%B8%8D%E8%80%83%E8%99%91%E5%8F%8D%E5%90%91%E8%BE%B9/">
+    <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2020/11/15/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="赵仡博">
@@ -263,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.1流网络，不考虑反向边</h1>
+          <h1 class="post-title" itemprop="name headline">汇编语言</h1>
         
 
         <div class="post-meta">
@@ -275,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-25T23:40:07+08:00">
-                2020-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-15T00:01:42+08:00">
+                2020-11-15
               </time>
             
 
@@ -313,19 +341,40 @@
       
 
       
-        <h1 id="网络流的基本概念"><a href="#网络流的基本概念" class="headerlink" title="网络流的基本概念"></a>网络流的基本概念</h1><h3 id="1-流网络，不考虑反向边"><a href="#1-流网络，不考虑反向边" class="headerlink" title="1.流网络，不考虑反向边"></a>1.流网络，不考虑反向边</h3><p><img src="https://cdn.acwing.com/media/article/image/2020/07/26/15524_abf2ee34ce-1.png" alt="1.png"></p>
-<p>在一张有向图中 G = (V, E) 中有一个源点 S 和一个汇点 T。</p>
-<p>源点 S 有无限多的水流可以向外流出，汇点 T 可以接受无限多的水流。</p>
-<p>其中对于每一条有向边有一个边权代表这条有向边最大可以流过的流量(用 c(u, v) 来表示)。</p>
-<h3 id="2-可行流"><a href="#2-可行流" class="headerlink" title="2.可行流"></a>2.可行流</h3><p>对于可行流用 f 来表示，f 指的是对于一整张有向图而言，指定有向图中每条有向边流过多少流量。f(u, v) 指的是从 u 到 v 的一条有向边的可行流。</p>
-<h4 id="2-1-f的满足条件"><a href="#2-1-f的满足条件" class="headerlink" title="2.1 f的满足条件"></a>2.1 f的满足条件</h4><p>​    容量限制、流量守恒</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.acwing.com/media/article/image/2020/07/26/15524_b133db24ce-2.png" alt="2.png"></h3><h4 id="2-2-可行流的流量"><a href="#2-2-可行流的流量" class="headerlink" title="2.2 可行流的流量"></a>2.2 可行流的流量</h4><p>可行流的流量指从源点流出的流量 - 流入源点的流量</p>
-<p><img src="https://cdn.acwing.com/media/article/image/2020/07/26/15524_b5e54e50ce-3.png" alt="3.png"></p>
-<h4 id="2-3-最大流是指最大可行流"><a href="#2-3-最大流是指最大可行流" class="headerlink" title="2.3 最大流是指最大可行流"></a>2.3 最大流是指最大可行流</h4><h3 id="3-残留网络（考虑反向边）"><a href="#3-残留网络（考虑反向边）" class="headerlink" title="3.残留网络（考虑反向边）"></a>3.残留网络（考虑反向边）</h3><p>残留网络指的是在原网络中指定了可行流之后对应的一个网络流，原网络的一个可行流对应一个残留网络。</p>
-<p>其中残留网络的点包含原网络中的所有点 V 、边包含了原网络中的边 E 和其一一对应的反向边 RE。</p>
-<p>残留网络的每条边的边权。</p>
-<p><img src="https://cdn.acwing.com/media/article/image/2020/07/26/15524_bcc68e78ce-4.png" alt="4.png"></p>
-<h4 id="3-1-残留网络的可行流f’-原图的可行流f-原题的另一个可行流"><a href="#3-1-残留网络的可行流f’-原图的可行流f-原题的另一个可行流" class="headerlink" title="3.1 残留网络的可行流f’ + 原图的可行流f = 原题的另一个可行流"></a>3.1 残留网络的可行流f’ + 原图的可行流f = 原题的另一个可行流</h4>
+        <p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011223009364.png" alt="image-20201011223009364"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011224321595.png" alt="image-20201011224321595"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011225908563.png" alt="image-20201011225908563"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011230050983.png" alt="image-20201011230050983"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011230224110.png" alt="image-20201011230224110"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224704182.png" alt="image-20201018224704182"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224718837.png" alt="image-20201018224718837"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224840582.png" alt="image-20201018224840582"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018225122845.png" alt="image-20201018225122845"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018225130888.png" alt="image-20201018225130888"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018230231323.png" alt="image-20201018230231323"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018232740515.png" alt="image-20201018232740515"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018233730611.png" alt="image-20201018233730611"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018233920185.png" alt="image-20201018233920185"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024104612146.png" alt="image-20201024104612146"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024105358681.png" alt="image-20201024105358681"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024105845208.png" alt="image-20201024105845208"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024110116114.png" alt="image-20201024110116114"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024111356280.png" alt="image-20201024111356280">s</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024112946288.png" alt="image-20201024112946288">s</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201025101002414.png" alt="image-20201025101002414"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201025101432908.png" alt="image-20201025101432908"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031221407027.png" alt="image-20201031221407027"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031222958696.png" alt="image-20201031222958696"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031223355439.png" alt="image-20201031223355439"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031223636497.png" alt="image-20201031223636497"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201107232611683.png" alt="image-20201107232611683"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114213218098.png" alt="image-20201114213218098"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114215821435.png" alt="image-20201114215821435"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114235402716.png" alt="image-20201114235402716"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114235953948.png" alt="image-20201114235953948"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201115000006727.png" alt="image-20201115000006727"></p>
+
       
     </div>
     
@@ -349,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/25/acwing/" rel="next" title="acwing">
-                <i class="fa fa-chevron-left"></i> acwing
+              <a href="/2020/09/25/%E9%A1%B6%E9%A1%B6%E9%A1%B6%E9%A1%B6%E9%A1%B6/" rel="next" title="顶顶顶顶顶">
+                <i class="fa fa-chevron-left"></i> 顶顶顶顶顶
               </a>
             
           </div>
@@ -358,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/25/%E7%AC%AC%E4%B8%83%E7%AB%A0%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" rel="prev" title="第七章输入输出">
-                第七章输入输出 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -413,17 +458,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -474,22 +510,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络流的基本概念"><span class="nav-number">1.</span> <span class="nav-text">网络流的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-流网络，不考虑反向边"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.流网络，不考虑反向边</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-可行流"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.可行流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-f的满足条件"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">2.1 f的满足条件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.0.3.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-可行流的流量"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">2.2 可行流的流量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-最大流是指最大可行流"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2.3 最大流是指最大可行流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-残留网络（考虑反向边）"><span class="nav-number">1.0.4.</span> <span class="nav-text">3.残留网络（考虑反向边）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-残留网络的可行流f’-原图的可行流f-原题的另一个可行流"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">3.1 残留网络的可行流f’ + 原图的可行流f &#x3D; 原题的另一个可行流</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
