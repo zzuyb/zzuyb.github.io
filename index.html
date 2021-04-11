@@ -238,6 +238,491 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2021/04/11/%E9%98%B6%E4%B9%98%E6%B1%82%E8%B4%A8%E5%9B%A0%E5%AD%90%E6%8C%87%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵仡博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuyb">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/11/%E9%98%B6%E4%B9%98%E6%B1%82%E8%B4%A8%E5%9B%A0%E5%AD%90%E6%8C%87%E6%95%B0/" itemprop="url">阶乘求质因子指数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-11T15:40:10+08:00">
+                2021-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20210411153831588.png" alt="image-20210411153831588"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e7</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> prime[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_prime</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">			prime[++cnt] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= cnt &amp;&amp; i &lt;= n / prime[j]; j++) &#123;</span><br><span class="line">			vis[i * prime[j]] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">get</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	ll res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (n) &#123;</span><br><span class="line">		res += n / p;</span><br><span class="line">		n /= p;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">get</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">get</span>(r, p) - <span class="built_in">get</span>(l - <span class="number">1</span>, p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> l1, <span class="keyword">int</span> r1, <span class="keyword">int</span> l2, <span class="keyword">int</span> r2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> p = prime[i];</span><br><span class="line">		<span class="keyword">int</span> cnt1 = <span class="built_in">get</span>(l1, r1, p);</span><br><span class="line">		<span class="keyword">int</span> cnt2 = <span class="built_in">get</span>(l2, r2, p);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (cnt1 &amp;&amp; !cnt2) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (cnt1 &gt; cnt2) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	init_prime(<span class="number">1e7</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> T; <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (T--) &#123;</span><br><span class="line">		<span class="keyword">int</span> l1, r1, l2, r2;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (judge(l1, r1, l2, r2)) <span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2021/03/08/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵仡博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuyb">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/08/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url">汇编语言</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-08T18:36:16+08:00">
+                2021-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011230050983.png" alt="image-20201011230050983"></p>
+<p>a0b0h前面应该加0</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201011230224110.png" alt="image-20201011230224110"></p>
+<p>![image-20201018224704182](C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224704182.png</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224718837.png" alt="image-20201018224718837"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018224840582.png" alt="image-20201018224840582"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018225122845.png" alt="image-20201018225122845"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018232740515.png" alt="image-20201018232740515"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201018233730611.png" alt="image-20201018233730611"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024105358681.png" alt="image-20201024105358681"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024110116114.png" alt="image-20201024110116114"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201024112946288.png" alt="image-20201024112946288">inc dword ptr[ebx],和push [ebx]一样的问题</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201025101002414.png" alt="image-20201025101002414"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201025101432908.png" alt="image-20201025101432908"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031222958696.png" alt="image-20201031222958696"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201031223636497.png" alt="image-20201031223636497"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201107232611683.png" alt="image-20201107232611683"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114213218098.png" alt="image-20201114213218098"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201114215821435.png" alt="image-20201114215821435"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219131241830.png" alt="image-20201219131241830"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219131908882.png" alt="image-20201219131908882"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219131938460.png" alt="image-20201219131938460"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219132050282.png" alt="image-20201219132050282"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219132220881.png" alt="image-20201219132220881"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219132256957.png" alt="image-20201219132256957"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201219133033173.png" alt="image-20201219133033173"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227231409122.png" alt="image-20201227231409122"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227231449068.png" alt="image-20201227231449068"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227231508676.png" alt="image-20201227231508676"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227231632527.png" alt="image-20201227231632527"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227231902641.png" alt="image-20201227231902641"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227232004715.png" alt="image-20201227232004715"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227232708452.png" alt="image-20201227232708452"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227233913811.png" alt="image-20201227233913811"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227234656685.png" alt="image-20201227234656685"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227235248481.png" alt="image-20201227235248481"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227235411597.png" alt="image-20201227235411597"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227235540902.png" alt="image-20201227235540902"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228000149964.png" alt="image-20201228000149964"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228000353715.png" alt="image-20201228000353715"></p>
+<p>运行过程中才加载，只有一份</p>
+<p>![</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227235208091.png" alt="image-20201227235208091">]</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228144551263.png" alt="image-20201228144551263">(C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227213643027.png)</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228154030972.png" alt="image-20201228154030972"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228154911000.png" alt="image-20201228154911000"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228204409464.png" alt="image-20201228204409464"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228210729459.png" alt="image-20201228210729459"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228210856940.png" alt="image-20201228210856940"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228210918609.png" alt="image-20201228210918609"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201228211919861.png" alt="image-20201228211919861"></p>
+<p>qvar qword 。。。。。</p>
+<p>shr dword ptr qvar+4,1 </p>
+<p>rcr dword ptr qvar,1</p>
+<p>sbb adc 记得和cf计算</p>
+<p>bx bp si di 16位寄存器间接寻址</p>
+<p>mov:立即数不能给段寄存器；存储器不能给存储器；段寄存器给段寄存器</p>
+<p>xchg: 存储器与存储器不行</p>
+<p>seg 变量名：返回段基地址</p>
+<p>org: org 100h 从偏移地址100H处安排数据或程序</p>
+<p>align:模n地址</p>
+<p>lea 可以[esi+dei*4+100h]，offset不行</p>
+<p>cf（进位1）of（溢出1）zf（零是1） sf（正数是0）pf（运算结果最低字节中“1”的个数是偶数或0时pf等于1）</p>
+<p>带进位加法ADC 高位是edx</p>
+<p>求补指令NEG</p>
+<p>shl shr</p>
+<p>sal sar</p>
+<p>rol ror</p>
+<p>rcl rcr</p>
+<p>jecxz</p>
+<p>loop指令从0开始时执行2的32次方</p>
+<p> 斐波那契数列：add eax,ebx</p>
+<p>​                            jc done</p>
+<p>​                            xchg eax,ebx</p>
+<p>冒泡排序：</p>
+<p>.data</p>
+<p>array dword …</p>
+<p>count =lengthof array</p>
+<p>.code</p>
+<p>​        mov ecx,count</p>
+<p>​        dec ecx</p>
+<p>out:</p>
+<p>​        mov ebx,offset array</p>
+<p>​        mov edx,ecx</p>
+<p>in:</p>
+<p>​        mov eax,[ebx]</p>
+<p>​        cmp eax,[ebx+4]</p>
+<p>​        jng next</p>
+<p>​        xchg eax,[ebx+4]</p>
+<p>​        mov [ebx],eax</p>
+<p>next</p>
+<p>​        add ebx,4</p>
+<p>​        dec edx</p>
+<p>​        jnz in</p>
+<p>​        loop out</p>
+<p>字符剔除程序，剔除空格 (p113)</p>
+<p>.data</p>
+<p>string byte ‘…’,13,10,0</p>
+<p>.code</p>
+<p>子程序设计</p>
+<p>call p199</p>
+<p>ret        无参数返回</p>
+<p>ret i16 有参数返回，esp=esp+i16</p>
+<p>dos应用程序</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227183603091.png" alt="image-20201227183603091"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227184022415.png" alt="image-20201227184022415"></p>
+<p>io指令</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227203218332.png" alt="image-20201227203218332"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227203638100.png" alt="image-20201227203638100"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227204027934.png" alt="image-20201227204027934"></p>
+<p>C++</p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227205129055.png" alt="image-20201227205129055"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227205251577.png" alt="image-20201227205251577"></p>
+<h2 id="WINDOWS"><a href="#WINDOWS" class="headerlink" title="WINDOWS"></a>WINDOWS</h2><p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227205708426.png" alt="image-20201227205708426"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201227205953257.png" alt="image-20201227205953257"></p>
+<p><img src="C:\Users\13258\AppData\Roaming\Typora\typora-user-images\image-20201230232008640.png" alt="image-20201230232008640"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2020/12/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵仡博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuyb">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/12/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url">操作系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-19T20:07:26+08:00">
+                2020-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第五章-设备管理"><a href="#第五章-设备管理" class="headerlink" title="第五章 设备管理"></a>第五章 设备管理</h1><h2 id="5-1-I-O硬件系统"><a href="#5-1-I-O硬件系统" class="headerlink" title="5.1 I/O硬件系统"></a>5.1 I/O硬件系统</h2><h3 id="5-1-1设备类别"><a href="#5-1-1设备类别" class="headerlink" title="5.1.1设备类别"></a>5.1.1设备类别</h3><h4 id="（1）从数据交换单位来分"><a href="#（1）从数据交换单位来分" class="headerlink" title="（1）从数据交换单位来分"></a>（1）从数据交换单位来分</h4><p>​    块设备</p>
+<p>​    字符设备</p>
+<h4 id="（2）从设备访问方式来分"><a href="#（2）从设备访问方式来分" class="headerlink" title="（2）从设备访问方式来分"></a>（2）从设备访问方式来分</h4><p>​    顺序设备</p>
+<p>​    随机设备</p>
+<h3 id="5-1-2设备硬件组成"><a href="#5-1-2设备硬件组成" class="headerlink" title="5.1.2设备硬件组成"></a>5.1.2设备硬件组成</h3><p>I/O设备一般由机械部件和电子部件</p>
+<h3 id="5-1-3设备控制器"><a href="#5-1-3设备控制器" class="headerlink" title="5.1.3设备控制器"></a>5.1.3设备控制器</h3><p>设备控制器主要功能4条</p>
+<p>四种寄存器，功能</p>
+<h3 id="5-1-4总线"><a href="#5-1-4总线" class="headerlink" title="5.1.4总线"></a>5.1.4总线</h3><p>总线用以连接计算机系统中的设备、处理器、内存等硬件资源实现通信。</p>
+<h2 id="5-2-I-O控制方式"><a href="#5-2-I-O控制方式" class="headerlink" title="5.2 I/O控制方式"></a>5.2 I/O控制方式</h2><p>轮询</p>
+<p>中断</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zzuyb.github.io/2020/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1115,7 +1600,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1165,7 +1650,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
